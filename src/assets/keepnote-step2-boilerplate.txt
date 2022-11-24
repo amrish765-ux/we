@@ -1,0 +1,11 @@
+ASP.NET Core Assignment:
+-------------------
+
+Assignment Name:
+keepnote-step2-boilerplate
+
+Link:
+https://gitlab-cgi.stackroute.in/stack_dotnet_keep/keepnote-step2-boilerplate
+
+Completion Due Date:
+14-Nov-2022

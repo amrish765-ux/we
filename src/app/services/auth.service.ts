@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private baseUrl:string="https://localhost:7161/api/User/";
-  private baseUrl1:string="https://api.openweathermap.org/data/2.5/weather?q=mumbai&lat=44.34&lon=10.99&appid=aa8ba225e914649778f77d6e2ce41b64";
+  // private baseUrl1:string="https://api.openweathermap.org/data/2.5/weather?q=mumbai&lat=44.34&lon=10.99&appid=aa8ba225e914649778f77d6e2ce41b64";
 
   constructor(private http:HttpClient,private route:Router) { }
   signUp(userObj:any){
@@ -30,8 +30,8 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
-  getAllForeacast(){
-    return this.http.get<any>('')
-  }
+  // getAllForeacast(){
+  //   return this.http.get<any>('')
+  // }
   
 } 

@@ -26,13 +26,30 @@
   <img style="width: 100%; margin-bottom: 0px;height: 600px;" src="../../../assets/wa10.jpg" alt="w">
   <div class="s" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);">
     <div class="searchcity" style="color: black;">Search city</div>
-    <input class="form-control mr-sm-2 bg-light" type="search" placeholder="Search City" aria-label="Search">
-    <button style="background: rgb(146, 136, 228);" class="btn btn-outline-dark my-4 my-sm-0 m-5"
-      type="submit">Search</button>
+    <input class="form-control mr-sm-2 bg-light" #country type="search" placeholder="Search City" aria-label="Search">
+    <button style="background: rgb(146, 136, 228);" class="btn btn-outline-dark my-4 my-sm-0 m-5" type="submit"
+      (click)="getCity(country.value);getAllForecast(country.value)">Search</button>
+    <h1 style="color: red; background-color: aqua;">temp: {{this.temp}}</h1>
+    <h1 style="color: red;background-color: aqua;">feels like: {{this.tempFeelsLike}}</h1>
+    <h1 style="color: red;background-color: aqua;">city: {{this.city}}</h1>
+    <ul style="display: flex; justify-content: space-between;">
+      <li style="color: red;background-color: aqua;">min temp: {{this.tempMin}}</li>
+      <li style="color: red;background-color: aqua;">max temp: {{this.tempMax}}</li>
+      <li style="color: red;background-color: aqua;">description: {{this.description}}</li>
+      <li style="color: red;background-color: aqua;">latitude: {{this.lat}}</li>
+      <li style="color: red;background-color: aqua;">longitude: {{this.lon}}</li>
+      <!-- <li style="color: red;background-color: aqua;">country: {{this.country}}</li> -->
+      <li style="color: red;background-color: aqua;">weatherIcon: {{this.weatherIcon}}</li>
+      <li style="color: red;background-color: aqua;">humidity: {{this.humidity}}%</li>
+
+    </ul>
 
   </div>
   <!-- forecast -->
-  
+
+
+
+
 
 </div>
 <footer style="background-color: rgb(110, 110, 117);text-align: center;">&copy;All right reserverd License <a href="#"

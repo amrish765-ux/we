@@ -25,6 +25,9 @@ export class DashboardComponent implements OnInit {
     tempMax:       string='';
     tempMin:       string='';
     weatherIcon:   string='';
+
+
+    logot:boolean=false;
   constructor(private auth:AuthService) { }
 
   ngOnInit(): void {
@@ -33,7 +36,6 @@ export class DashboardComponent implements OnInit {
       isDay:true
     };
     // this.getAllForecast();
-
   }
   logout(){
     this.auth.signOut();
@@ -61,6 +63,10 @@ export class DashboardComponent implements OnInit {
     this.tempFeelsLike=this.ForecastData[0].tempFeelsLike;
     this.weatherIcon=this.ForecastData[0].weatherIcon;
     this.humidity=this.ForecastData[0].humidity;
+  }
+
+  checkLogout(){
+    return this.auth.isLoggedIn();
   }
 
 }

@@ -5,18 +5,12 @@
 
   <div class="nav-item" style="display: flex;">
 
-
-    <button class="btn btn-success mx-1"><a id="forget" routerLink="/signup"
-        style="color: white;text-decoration: none;">Register</a></button>
-    <button class="btn btn-success mx-1"><a id="forget" routerLink="/login"
-        style="color: white;text-decoration: none;">Login</a></button>
-    <button class="btn btn-success mx-1"><a id="forget" routerLink="/signup"
-        style="color: white;text-decoration: none;">Favourite</a></button>
-    <button class="btn btn-success mx-1"><a id="forget" routerLink="/signup"
-        style="color: white;text-decoration: none;">Recommend</a></button>
-    <!-- <button class="btn btn-success mx-1"><a id="forget" routerLink="/contacts"
-        style="color: white;text-decoration: none;">Contact</a></button> -->
-    <!-- <button (click)="logout()" class="btn btn-danger my-2 mx-1 my-sm-0 m-2" type="submit">Logout</button> -->
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" routerLink="/signup">Register</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="!checkLogout()" routerLink="/login">Login</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;">Favourite</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()">Recommend</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()" (click)="logout()" >Logout</li>
+    <!-- <button class="btn btn-danger m-2" *ngIf="checkLogout()" (click)="logout()">Logout</button> -->
   </div>
 
 
@@ -29,18 +23,22 @@
     <input class="form-control mr-sm-2 bg-light" #country type="search" placeholder="Search City" aria-label="Search">
     <button style="background: rgb(146, 136, 228);" class="btn btn-outline-dark my-4 my-sm-0 m-5" type="submit"
       (click)="getCity(country.value);getAllForecast(country.value)">Search</button>
-    <h1 style="color: red; background-color: aqua;">temp: {{this.temp}}</h1>
-    <h1 style="color: red;background-color: aqua;">feels like: {{this.tempFeelsLike}}</h1>
-    <h1 style="color: red;background-color: aqua;">city: {{this.city}}</h1>
-    <ul style="display: flex; justify-content: space-between;">
-      <li style="color: red;background-color: aqua;">min temp: {{this.tempMin}}</li>
-      <li style="color: red;background-color: aqua;">max temp: {{this.tempMax}}</li>
-      <li style="color: red;background-color: aqua;">description: {{this.description}}</li>
-      <li style="color: red;background-color: aqua;">latitude: {{this.lat}}</li>
-      <li style="color: red;background-color: aqua;">longitude: {{this.lon}}</li>
+    <ul style="display: flex; justify-content: space-between;text-decoration: none;list-style-type: none">
+      <li style="color: red; background-color: aqua;border-radius: 20px;">temp: {{this.temp}}</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">feels like: {{this.tempFeelsLike}}</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">city: {{this.city}}</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">min temp: {{this.tempMin}}</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">max temp: {{this.tempMax}}</li>
+
+    </ul>
+    <ul style="display: flex; justify-content: space-between;text-decoration: none;list-style-type: none">
+      <li style="color: red;background-color: aqua;border-radius: 20px;">description: {{this.description}}</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">latitude: {{this.lat}}</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">longitude: {{this.lon}}</li>
       <!-- <li style="color: red;background-color: aqua;">country: {{this.country}}</li> -->
-      <li style="color: red;background-color: aqua;">weatherIcon: {{this.weatherIcon}}</li>
-      <li style="color: red;background-color: aqua;">humidity: {{this.humidity}}%</li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;"><img
+          src="http://openweathermap.org/img/wn/10d@2x.png" alt="icon"></li>
+      <li style="color: red;background-color: aqua;border-radius: 20px;">humidity: {{this.humidity}}%</li>
 
     </ul>
 

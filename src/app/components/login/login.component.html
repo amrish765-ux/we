@@ -1,47 +1,49 @@
-    
-    <div class="container">
-        <div class="back">
-        <div class="row">
-            <div class="offset-md-2 col-lg-5 col-md-7 offset-md-3">
-                <div class="panel border bg-white">
-                    <div class="panel-heading">
-                        <h3 class="pt-1 font-weight-bold">
-                            Login
-                        </h3>
-                    </div>
-                    <div class="panel-body pt-3">
-                        <form [formGroup]="loginForm">
-                            <div class="form-group pt-3">
-                                <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
-                                    <span class="fa fa-user p-4"></span>
-                                    <input formControlName="username" id="s1" type="text" placeholder="Username">
-                                </div>
-                            </div>
-                            <small *ngIf="loginForm.controls['username'].dirty&&loginForm.hasError('required','username')" class="text-danger m-4">*Username is required</small>
-                            <div class="form-group pt-3">
-                                <div class="input-field" [class.error]="loginForm.controls['password'].dirty&&loginForm.hasError('required','password')">
-                                    <span class="fa fa-user p-4"></span>
-                                    <input formControlName="password" id="s1" [type]="type" placeholder="Password">
-                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
-                                </div>
-                            </div>
-                            <small *ngIf="loginForm.controls['password'].dirty&&loginForm.hasError('required','password')"  class="text-danger m-4">*Password is required</small>
-                            <div class="form-inline fr mt-4 ">
-                                <a id="forget" class="font-weight m-4">Forget Password</a>
-                            </div>
-                            <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block mt-4  w-50">Login</button>
-                            <div class="text-center pt-4 text-muted">don't have account?<a id="forget" routerLink="/signup">Sign Up</a></div>
-                        </form>
-                    </div>
-                    <div class="mx-3 my-3 py-2 bordert">
-                        <div class="text-center py-1">
-                            <a href="https://www.facebook.com"target="_blank" class="px-2"><img src="../../../assets/facebook.svg" alt="facebook"></a>
-                            <a href="https://www.google.com"target="_blank" class="px-2"><img src="../../../assets/google.svg" alt="google"></a>
-                            <a href="https://www.facebook.com"target="_blank" class="px-2"><img src="../../../assets/twitter.svg" alt="twitter"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+
+  <div class="back">
+
+      <img style="min-width:100%; min-height: 100%;position: fixed;top: 0;left: 0;" src="../../../assets/wa10.jpg" alt="w">
+   <div class="two">
+      <div class="one">
+          <div class="panel" style="background-color:white">
+              <div class="panel-heading">
+                  <h3 class="pt-1 font-weight-bold">
+                      Login
+                  </h3>
+              </div>
+              <div class="panel-body pt-3">
+                  <form [formGroup]="loginForm">
+                      <div class="form-group pt-3">
+                          <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                              <span class="fa fa-user p-4"></span>
+                              <input formControlName="username" id="s1" type="text" placeholder="Username">
+                          </div>
+                      </div>
+                      <small *ngIf="loginForm.controls['username'].dirty&&loginForm.hasError('required','username')" class="text-danger m-4">*Username is required</small>
+                      <div class="form-group pt-3">
+                          <div class="input-field" [class.error]="loginForm.controls['password'].dirty&&loginForm.hasError('required','password')">
+                              <span class="fa fa-user p-4"></span>
+                              <input formControlName="password" id="s1" [type]="type" placeholder="Password">
+                              <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                          </div>
+                      </div>
+                      <small *ngIf="loginForm.controls['password'].dirty&&loginForm.hasError('required','password')"  class="text-danger m-4">*Password is required</small>
+                      <div class="form-inline fr mt-4 ">
+                          <a id="forget" class="font-weight m-4">Forgot Password</a>
+                      </div>
+                      <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block mt-4  w-50">Login</button>
+                      <div class="text-center pt-4 text-muted">Don't have account?<a id="forget" routerLink="/signup">Register</a></div>
+                  </form>
+              </div>
+              <div class="mx-3 my-3 py-2 bordert">
+                  <div class="text-center py-1">
+                      <a href="https://www.facebook.com"target="_blank" class="px-2"><img src="../../../assets/facebook.svg" alt="facebook"></a>
+                      <a href="https://www.google.com"target="_blank" class="px-2"><img src="../../../assets/google.svg" alt="google"></a>
+                      <a href="https://www.facebook.com"target="_blank" class="px-2"><img src="../../../assets/twitter.svg" alt="twitter"></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 </div>

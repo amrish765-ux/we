@@ -1,6 +1,10 @@
-.outer{
-    height: 150vh;
-    background: linear-gradient(to top,#8b3434 50%,#6a75b1);
+.container{
+  background-image: url(src\assets\wa10.jpg);
+
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
 }
 .panel-heading{
     text-align: center;
@@ -32,7 +36,7 @@ a:hover{
     box-shadow: 20px 20px 80px rgb(218, 218, 218);
     border-radius: 12px;
     margin-top: 100px;
-    
+
 }
 .input-field{
     border-radius: 30px;
@@ -44,7 +48,7 @@ a:hover{
     color: #434343;
     margin-left: 20px;
     margin-right: 20px;
-    
+
 }
 .input-field.error{
     border: 1px solid red;
@@ -66,7 +70,7 @@ img{
     width: 40px;
     height: 40px;
     object-fit: cover;
-    border-radius: 50%;
+
     position: relative;
 }
 
@@ -82,4 +86,3 @@ img{
     left: 33%;
     background-color: white;
 }
-

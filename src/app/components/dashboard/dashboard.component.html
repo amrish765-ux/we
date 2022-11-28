@@ -23,12 +23,14 @@
   <div class="s" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);">
 
     <div class="searchcity" style="color: #1b5a75; font-weight: 800;font-size: xx-large;;">Enter City Name</div>
-    <input class="form-control mr-sm-2 bg-light" #country type="search" placeholder="Search City" aria-label="Search">
+    <input class="form-control mr-sm-2 bg-light" #country1 type="search" placeholder="Search City" aria-label="Search">
 
     <button id="searchbutton" style="background: #356e84;" class="btn btn-outline-dark " type="submit"
-      (click)="getCity(country.value);getAllForecast(country.value)">Search</button>
+      (click)="getCity(country1.value);getAllForecast(country1.value)">Search</button>
 
     <ul style="display: flex; justify-content: space-between;text-decoration: none;list-style-type: none">
+      <li style="color: red; border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;margin-bottom: 3px;"><img [src]="weatherIcon"/></li>
+
       <li style="color: red; background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">temp: {{this.temp}}</li>
       <li style="color: red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">feels like: {{this.tempFeelsLike}}</li>
       <li style="color: red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">city: {{this.city}}</li>
@@ -40,7 +42,7 @@
       <li style="color: red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">description: {{this.description}}</li>
       <li style="color:red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">latitude: {{this.lat}}</li>
       <li style="color: red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">longitude: {{this.lon}}</li>
-      <!-- <li style="color: red;background-color: aqua;">country: {{this.country}}</li> -->
+      <li style="color: red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">country: {{this.country}}</li>
 
       <li style="color: red;background-color: rgb(238, 247, 247);border-radius: 5px;height: 30px;width: auto;margin-right: 5px;padding: 3px;">humidity: {{this.humidity}}%</li>
 

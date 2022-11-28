@@ -13,9 +13,9 @@ export class DashboardComponent implements OnInit {
     ForecastData!:any;
     cityval:       string='';
 
-
+  
     city:          string='';
-    // country:       string='';
+    country:       string='';
     lat:           string='';
     lon:           string='';
     description:   string='';
@@ -54,14 +54,14 @@ export class DashboardComponent implements OnInit {
     this.ForecastData=Data;
     this.temp=this.ForecastData[0].temp;
     this.city=this.ForecastData[0].city;
-    // this.country=this.ForecastData[0].country;
+    this.country=this.ForecastData[0].country;
     this.lat=this.ForecastData[0].lat;
     this.lon=this.ForecastData[0].lon;
     this.description=this.ForecastData[0].description;
     this.tempMax=this.ForecastData[0].tempMax;
     this.tempMin=this.ForecastData[0].tempMin;
     this.tempFeelsLike=this.ForecastData[0].tempFeelsLike;
-    this.weatherIcon=this.ForecastData[0].weatherIcon;
+    this.weatherIcon=`http://openweathermap.org/img/wn/${this.ForecastData[0].weatherIcon}@2x.png`;
     this.humidity=this.ForecastData[0].humidity;
   }
 

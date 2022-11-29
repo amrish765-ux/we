@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+declare var test: any;
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularAuthUI';
+  f(){
+    new test();
+  }
 }
+

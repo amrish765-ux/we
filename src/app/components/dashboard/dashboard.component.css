@@ -15,3 +15,21 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
+.hide {
+  display: none;
+}
+
+.myDIV:hover{
+  display: none;
+  color: red;
+}
+#intro {
+  background-image: url(src\assets\pexels-tahir-shaw-186980.jpg);
+
+}
+.s
+{
+    position:relative;
+    height:30%;
+width: 45%;
+}

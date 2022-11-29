@@ -6,7 +6,7 @@
 
   <div class="nav-item" style="display: flex;">
 
-    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" routerLink="/signup">Register</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="!checkLogout()" routerLink="/signup">Register</li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="!checkLogout()" routerLink="/login">Login</li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;">Favourite</li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()">Recommend</li>

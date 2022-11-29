@@ -18,7 +18,7 @@ export class AuthService {
   }
   signOut(){
     localStorage.clear();
-    this.route.navigate(['login']);
+    this.route.navigate(['dashboard']);
   }
   storeToken(tokenValue:string){
     localStorage.setItem('token',tokenValue);

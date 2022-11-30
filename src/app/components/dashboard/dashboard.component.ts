@@ -11,9 +11,9 @@ export class DashboardComponent implements OnInit {
 
 
     ForecastData!:any;
-    cityval:       string='';
+    cityval:       string='delhi';
 
-  
+
     city:          string='';
     country:       string='';
     lat:           string='';
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
       main:{},
       isDay:true
     };
-    // this.getAllForecast();
+    this.getAllForecast();
   }
   logout(){
     this.auth.signOut();
@@ -43,9 +43,9 @@ export class DashboardComponent implements OnInit {
   getCity(val:string){
     this.cityval=val;
   }
-  getAllForecast(val:string){
+  getAllForecast(){
     let host="http://localhost:5189/api/Weather?City=";
-    fetch(`${host}${val}`)
+    fetch(`${host}${this.cityval}`)
     .then(response=>response.json())
     .then(data=>{this.setAllforecastData(data);})
 
@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
     this.tempMax=this.ForecastData[0].tempMax;
     this.tempMin=this.ForecastData[0].tempMin;
     this.tempFeelsLike=this.ForecastData[0].tempFeelsLike;
-    this.weatherIcon=`http://openweathermap.org/img/wn/${this.ForecastData[0].weatherIcon}@2x.png`;
+    this.weatherIcon=`http://openweathermap.org/img/wn/${this.ForecastData[0].weatherIcon}@4x.png`;
     this.humidity=this.ForecastData[0].humidity;
   }
 

@@ -28,14 +28,14 @@
     <input class="form-control mr-sm-2 bg-light" #country type="search" placeholder="Search City" aria-label="Search">
 
     <button id="searchbutton" style="background: #ecf6fa;" class="btn btn-outline-dark " type="submit"
-      (click)="getCity(country.value);getAllForecast(country.value)">Search</button>
+      (click)="getCity(country.value);">Search</button>
     <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
       <div class="card-body p-4">
               <div class="d-flex justify-content-between mb-4 pb-2">
                 <div>
                   <h2 style="color: #1f1f1d;" class="display-2"><strong> {{this.temp}}°C</strong></h2>
                   <p class="text-muted mb-0"> {{this.city}}</p>
-                  <p class="text-muted mb-0">Humidity:{{this.humidity}}</p>
+                  <p class="text-muted mb-0">Humidity:{{this.humidity}}%</p>
                   <p class="text-muted mb-0">Description:{{this.description}}</p>
                   </div>
                   <div id="feels_Like">

@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
   onSignUp(){
     if(this.signUpForm.valid){
       // console.log(this.signUpForm.value);
-      
+
       this.auth.signUp(this.signUpForm.value)
       .subscribe({
         next:(res=>{

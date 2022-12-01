@@ -1,37 +1,53 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl:string="https://localhost:7161/api/User/";
+  private baseUrl: string = 'https://localhost:7161/api/User/';
   // private baseUrl1:string="https://api.openweathermap.org/data/2.5/weather?q=mumbai&lat=44.34&lon=10.99&appid=aa8ba225e914649778f77d6e2ce41b64";
+  private userpayload: any;
 
-  constructor(private http:HttpClient,private route:Router) { }
-  signUp(userObj:any){
-   return this.http.post<any>(`${this.baseUrl}register`,userObj);
+  constructor(private http: HttpClient, private route: Router) {
+    this.userpayload = this.decodeToken();
   }
-  login(loginObj:any){
-    return this.http.post<any>(`${this.baseUrl}authenticate`,loginObj);
+  signUp(userObj: any) {
+    return this.http.post<any>(`${this.baseUrl}register`, userObj);
   }
-  signOut(){
+  login(loginObj: any) {
+    return this.http.post<any>(`${this.baseUrl}authenticate`, loginObj);
+  }
+  signOut() {
     localStorage.clear();
     this.route.navigate(['dashboard']);
   }
-  storeToken(tokenValue:string){
-    localStorage.setItem('token',tokenValue);
+  storeToken(tokenValue: string) {
+    localStorage.setItem('token', tokenValue);
   }
-  getToken(){
+  getToken() {
+    console.log(localStorage.getItem('token'));
     return localStorage.getItem('token');
   }
-  isLoggedIn():boolean{
+  isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
 
   // getAllForeacast(){
   //   return this.http.get<any>('')
   // }
-
+  decodeToken() {
+    const jwthelper = new JwtHelperService();
+    const token = this.getToken()!;
+    console.log(jwthelper.decodeToken(token));
+    return jwthelper.decodeToken(token);
+  }
+  GetFullNameFromToken() {
+    if (this.userpayload) return this.userpayload.unique_name;
+  }
+  GetRoleFromtoken() {
+    if (this.userpayload) return this.userpayload.role;
+  }
 }

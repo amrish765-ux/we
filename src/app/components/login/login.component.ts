@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from 'src/app/services/auth.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
+import { UserStoreService } from 'src/app/services/user-store.service';
 import ValidateForm from 'src/app/helpers/validateform';
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   eyeIcon: string = "fa-eye-slash";
   loginForm!: FormGroup;
   constructor(private fb: FormBuilder, private auth: AuthService, private route: Router,
-    private toast:NgToastService) { }
+    private toast:NgToastService,private userStore:UserStoreService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
   onLogin() {
     if (this.loginForm.valid) {
-     
+
       //sent to database
       this.auth.login(this.loginForm.value)
         .subscribe({
@@ -43,6 +44,10 @@ export class LoginComponent implements OnInit {
             this.toast.success({detail:"SUCCESS",summary:res.message,duration:3000});
             this.loginForm.reset();
             this.auth.storeToken(res.token);
+            const tokenpayload=this.auth.decodeToken();
+            this.userStore.setfullNamefromStore(tokenpayload.name);
+            this.userStore.setRolesfromStore(tokenpayload.role);
+            this.toast.success({detail:"success",summary:res.message,duration:5000})
             this.route.navigate(['dashboard']);
           },
           error: (err) => {

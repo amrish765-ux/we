@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NgToastService } from 'ng-angular-popup';
-import ValidateForm from 'src/app/helpers/validateform';
+
 import { AuthService } from 'src/app/services/auth.service';
+import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
+import ValidateForm from 'src/app/helpers/validateform';
 
 @Component({
   selector: 'app-signup',
@@ -38,6 +39,7 @@ export class SignupComponent implements OnInit {
   onSignUp(){
     if(this.signUpForm.valid){
       // console.log(this.signUpForm.value);
+      
       this.auth.signUp(this.signUpForm.value)
       .subscribe({
         next:(res=>{
@@ -46,7 +48,7 @@ export class SignupComponent implements OnInit {
           this.route.navigate(['login']);
         })
         ,error:(err=>{
-          this.toast.error({detail:"ERROR",summary:"Something went wrong",duration:5000});
+          this.toast.error({detail:"ERROR",summary:"Use different details",duration:5000});
         })
       })
     }

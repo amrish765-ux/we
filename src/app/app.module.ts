@@ -13,7 +13,6 @@ import { NgModule } from '@angular/core';
 import { NgToastModule } from 'ng-angular-popup';
 import { SignupComponent } from './components/signup/signup.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
     SignupComponent,
     DashboardComponent,
     ContactsComponent,
-    EditprofileComponent
   ],
   imports: [
     BrowserModule,

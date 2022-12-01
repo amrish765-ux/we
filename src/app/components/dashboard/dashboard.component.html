@@ -6,8 +6,9 @@
 
   <div class="nav-item" style="display: flex;">
 
-    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" routerLink="/signup">Register</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;"*ngIf="!checkLogout()" routerLink="/signup">Register</li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="!checkLogout()" routerLink="/login">Login</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()" >Welcome {{this.fullName}}</li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;"><img src="assets\icons8-add-to-favorites-48.png" alt="fav" height="30px">
       <div class="myDIV"></div>
       <div class="hide">favourite</div></li>
@@ -15,8 +16,6 @@
 
     <!-- <button class="btn btn-danger m-2" *ngIf="checkLogout()" (click)="logout()">Logout</button> -->
   </div>
-
-
 </nav>
 
 <div class="back" style="position: relative;text-align: center;color: white;">
@@ -28,7 +27,7 @@
     <input class="form-control mr-sm-2 bg-light" #country type="search" placeholder="Search City" aria-label="Search">
 
     <button id="searchbutton" style="background: #ecf6fa;" class="btn btn-outline-dark " type="submit"
-      (click)="getCity(country.value);">Search</button>
+      (click)="getCity(country.value);getAllForecast(country.value)">Search</button>
     <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
       <div class="card-body p-4">
               <div class="d-flex justify-content-between mb-4 pb-2">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { UserStoreService } from 'src/app/services/user-store.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,30 +29,38 @@ export class DashboardComponent implements OnInit {
 
 
     logot:boolean=false;
-  constructor(private auth:AuthService) { }
+
+    public fullName:string='';
+  constructor(private auth:AuthService,private userStore:UserStoreService) { }
 
   ngOnInit(): void {
     this.ForecastData={
       main:{},
       isDay:true
     };
-    this.getAllForecast();
+    this.getAllForecast(this.cityval);
+    this.userStore.getFullNamefromStore()
+    .subscribe((val:any)=>{
+      let fullnamefrom =this.auth.GetFullNameFromToken();
+      this.fullName=val || fullnamefrom
+    })
   }
   logout(){
     this.auth.signOut();
   }
   getCity(val:string){
     this.cityval=val;
+    console.log(this.cityval)
   }
-  getAllForecast(){
+  getAllForecast(vall:string){
     let host="http://localhost:5189/api/Weather?City=";
-    fetch(`${host}${this.cityval}`)
+    fetch(`${host}${vall}`)
     .then(response=>response.json())
     .then(data=>{this.setAllforecastData(data);})
-
   }
   setAllforecastData(Data:any){
     this.ForecastData=Data;
+    console.log(this.ForecastData)
     this.temp=this.ForecastData[0].temp;
     this.city=this.ForecastData[0].city;
     this.country=this.ForecastData[0].country;

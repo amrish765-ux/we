@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private baseUrl: string = 'https://localhost:7253/api/User/';
   // private baseUrl1:string="https://api.openweathermap.org/data/2.5/weather?q=mumbai&lat=44.34&lon=10.99&appid=aa8ba225e914649778f77d6e2ce41b64";
+  private baseUrl1:string='https://localhost:7264/api/WatchList/add';
   private userpayload: any;
 
   constructor(private http: HttpClient, private route: Router) {
@@ -27,6 +28,26 @@ export class AuthService {
       newpassword:updateInfo[2]
     } ,{responseType: 'text',});
   }
+  addToWatchList(WishInfo:Array<any>){
+    return this.http.post(`${this.baseUrl1}`,{
+      username:WishInfo[0],
+      country:WishInfo[1],
+      temp:WishInfo[2]
+    })
+  }
+
+  // addWatchlist(watchlistinfo:Array<any>){
+  //   return this.http.post(this.apiurl,{
+  //     userName: watchlistinfo[0],
+  //     country: watchlistinfo[1],
+  //     state: watchlistinfo[2],
+  //     city: watchlistinfo[3]
+  //   },{responseType:'text',});
+  // }
+
+
+
+
   signOut() {
     localStorage.clear();
     this.route.navigate(['dashboard']);
@@ -56,5 +77,8 @@ export class AuthService {
   }
   GetRoleFromtoken() {
     if (this.userpayload) return this.userpayload.role;
+  }
+  GetUsernameFromtoken() {
+    if (this.userpayload) return this.userpayload.username;
   }
 }

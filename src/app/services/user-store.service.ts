@@ -7,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class UserStoreService {
   private fullName$=new BehaviorSubject<string>("");
   private role$=new BehaviorSubject<string>("");
+  private username$=new BehaviorSubject<string>("");
+
+
 
   constructor() { }
 
@@ -21,5 +24,12 @@ export class UserStoreService {
   }
   public setfullNamefromStore(fullName:string){
     this.fullName$.next(fullName);
+  }
+
+   public getUserNamefromStore(){
+    return this.username$.asObservable();
+  }
+  public setUsernameNamefromStore(username:string){
+    this.username$.next(username);
   }
 }

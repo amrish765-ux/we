@@ -1,1 +1,6 @@
-<button>add city</button>
+<div class="searchcity" style="color: #f7fbfd; font-weight: 800;font-size: xx-large;">Enter City Name</div>
+
+<input class="form-control mr-sm-2  bg-light" #country type="search" placeholder="Search City" aria-label="Search">
+
+<button id="searchbutton" style="background: #ecf6fa;" class="btn btn-outline-dark " type="submit"
+  (click)="getCity(country.value);">Add city</button>

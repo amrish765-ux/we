@@ -8,8 +8,9 @@
 
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;"*ngIf="!checkLogout()" routerLink="/signup">Register</li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="!checkLogout()" routerLink="/login">Login</li>
-    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()" >Welcome {{this.fullName}}</li>
-    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;"><img src="assets\icons8-add-to-favorites-48.png" alt="fav" height="30px">
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()" >Welcome {{fullName}}</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()" routerLink="/updatepassword" >change password</li>
+    <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;"><img src="assets\icons8-add-to-favorites-48.png" alt="fav" height="30px" routerLink="/wishlist" >
       <div class="myDIV"></div>
       <div class="hide">favourite</div></li>
     <li id="a1" style="list-style-type: none; color: white;cursor: pointer;padding: 8px;display: block;" *ngIf="checkLogout()" (click)="logout()" >Logout</li>

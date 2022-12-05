@@ -13,6 +13,10 @@ import { NgModule } from '@angular/core';
 import { NgToastModule } from 'ng-angular-popup';
 import { SignupComponent } from './components/signup/signup.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { FavComponent } from './components/fav/fav.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     SignupComponent,
     DashboardComponent,
     ContactsComponent,
+    FavComponent,
+    ChangepasswordComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -29,6 +37,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     HttpClientModule,
     NgToastModule,
     FormsModule
+
   ],
   providers: [
     {

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  private baseUrl='https://localhost:7161/api/User';
+  private baseUrl='https://localhost:7253/api/User';
   constructor(private http:HttpClient) { }
   getAllUsers(){
     return this.http.get<any>(this.baseUrl);

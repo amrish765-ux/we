@@ -10,6 +10,8 @@ export class AuthService {
   private baseUrl: string = 'https://localhost:7253/api/User/';
   // private baseUrl1:string="https://api.openweathermap.org/data/2.5/weather?q=mumbai&lat=44.34&lon=10.99&appid=aa8ba225e914649778f77d6e2ce41b64";
   private baseUrl1:string='https://localhost:7264/api/WatchList/add';
+  private baseurl2:string='https://localhost:7264/api/WatchList/';
+
   private userpayload: any;
 
   constructor(private http: HttpClient, private route: Router) {
@@ -35,6 +37,10 @@ export class AuthService {
       temp:WishInfo[2]
     })
   }
+  getUserData(name:string){
+    let apiurl=`https://localhost:7264/api/WatchList/${name}`;
+    return this.http.get(apiurl);
+  }
 
   // addWatchlist(watchlistinfo:Array<any>){
   //   return this.http.post(this.apiurl,{
@@ -56,7 +62,7 @@ export class AuthService {
     localStorage.setItem('token', tokenValue);
   }
   getToken() {
-    console.log(localStorage.getItem('token'));
+
     return localStorage.getItem('token');
   }
   isLoggedIn(): boolean {
@@ -69,7 +75,7 @@ export class AuthService {
   decodeToken() {
     const jwthelper = new JwtHelperService();
     const token = this.getToken()!;
-    console.log(jwthelper.decodeToken(token));
+
     return jwthelper.decodeToken(token);
   }
   GetFullNameFromToken() {

@@ -22,9 +22,7 @@ export class ChangepasswordComponent implements OnInit {
   isUserValid: boolean= false;
 
   updateSubmited(){
-    console.log(this.updateForm.value.username,
-      this.updateForm.value.currentpassword,
-      this.updateForm.value.newpassword)
+    
     this.updateAuth.updateUser([this.updateForm.value.username,
     this.updateForm.value.currentpassword,
     this.updateForm.value.newpassword]).subscribe(res =>{

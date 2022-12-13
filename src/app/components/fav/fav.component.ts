@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
-import { NgToastComponent } from 'ng-angular-popup';
+import { NgToastService } from 'ng-angular-popup';
 import { UserStoreService } from 'src/app/services/user-store.service';
 
 @Component({
@@ -15,8 +16,13 @@ export class FavComponent implements OnInit {
   country:string=''
   temp:string=''
   ForecastData: any;
+  userData: any=[];
+
+
   constructor(private userStore:UserStoreService,private auth:AuthService,
-    private toast:NgToastComponent) { }
+    private toast:NgToastService) {
+
+    }
 
   ngOnInit(): void {
     this.userStore.getFullNamefromStore()
@@ -24,14 +30,21 @@ export class FavComponent implements OnInit {
       let usernamefrom =this.auth.GetUsernameFromtoken();
       this.username=val || usernamefrom
     })
+
+
   }
-  getCity(val:string){
-    this.country=val
+  showdata(){
+    this.auth.getUserData(this.username)
+    .subscribe((res:any)=>{
+      this.userData=res;
+      this.country=this.userData.city;
+    })
   }
 
-  getTemp(vall:string){
-    let host="http://localhost:5189/api/Weather?City=";
-    fetch(`${host}${vall}`)
+  getTemp(val:string){
+    this.country=val;
+    let host="http://localhost:5189/api/Weather?City="; 
+    fetch(`${host}${this.country}`)
     .then(response=>response.json())
     .then(data=>{this.setTemp(data);})
   }
@@ -47,10 +60,19 @@ export class FavComponent implements OnInit {
       this.temp
    ]).subscribe(res => {
     console.log(res);
-    
+
    });
 
   }
+  // showwatch(){
+  //   this.auth.getwatchlist(this.username)
+  //   .subscribe(res=>{
+  //     console.log(res)
+  //   })
+
+  // }
+
+
 
 
 }

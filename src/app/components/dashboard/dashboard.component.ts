@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
     logot:boolean=false;
 
     public fullName:string='';
+    username:string=''
   constructor(private auth:AuthService,private userStore:UserStoreService) { }
 
   ngOnInit(): void {
@@ -44,13 +45,19 @@ export class DashboardComponent implements OnInit {
       let fullnamefrom =this.auth.GetFullNameFromToken();
       this.fullName=val || fullnamefrom
     })
+
+    this.userStore.getFullNamefromStore()
+    .subscribe((val:any)=>{
+      let usernamefrom =this.auth.GetUsernameFromtoken();
+      this.username=val || usernamefrom
+    })
   }
   logout(){
     this.auth.signOut();
   }
   getCity(val:string){
     this.cityval=val;
-    console.log(this.cityval)
+
   }
   getAllForecast(vall:string){
     let host="http://localhost:5189/api/Weather?City=";
@@ -60,7 +67,7 @@ export class DashboardComponent implements OnInit {
   }
   setAllforecastData(Data:any){
     this.ForecastData=Data;
-    console.log(this.ForecastData)
+
     this.temp=this.ForecastData[0].temp;
     this.city=this.ForecastData[0].city;
     this.country=this.ForecastData[0].country;
@@ -76,6 +83,17 @@ export class DashboardComponent implements OnInit {
 
   checkLogout(){
     return this.auth.isLoggedIn();
+  }
+
+  addWatch(val:string){
+    this.auth.addToWatchList([
+      this.username,
+      this.country=val,
+      this.temp
+   ]).subscribe(res => {
+    console.log(res);
+   });
+
   }
 
 }
